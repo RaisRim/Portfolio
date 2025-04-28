@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rais Rim - Élève-Ingénieure en Génie Logiciel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+      body {
+        font-family: "Poppins", sans-serif;
+        scroll-behavior: smooth;
+      }
+
+      .gradient-text {
+        background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .skill-bar {
+        height: 8px;
+        border-radius: 4px;
+      }
+
+      .project-card {
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .project-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .nav-link {
+        position: relative;
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: #3b82f6;
+        transition: width 0.3s ease;
+      }
+
+      .nav-link:hover::after {
+        width: 100%;
+      }
+
+      .section-title {
+        position: relative;
+        display: inline-block;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        width: 50%;
+        height: 3px;
+        bottom: -5px;
+        left: 0;
+        background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+        border-radius: 3px;
+      }
+
+      .floating-icon {
+        animation: float 6s ease-in-out infinite;
+        filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.2));
+      }
+
+      @keyframes float {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-20px); }
+        100% { transform: translateY(0px); }
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 10;
+        text-align: center;
+        padding: 2rem;
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 1rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .floating-icons-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: 1;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50 text-gray-800">
+    <!-- Header/Navigation -->
+    <header class="fixed w-full bg-white shadow-sm z-50">
+      <nav
+        class="container mx-auto px-6 py-4 flex justify-between items-center"
+      >
+        <a href="#" class="text-2xl font-bold gradient-text">Rais Rim</a>
+        <div class="hidden md:flex space-x-8">
+          <a href="#about" class="nav-link">À propos</a>
+          <a href="#skills" class="nav-link">Compétences</a>
+          <a href="#projects" class="nav-link">Projets</a>
+          <a href="#experience" class="nav-link">Expérience</a>
+          <a href="#education" class="nav-link">Formation</a>
+          <a href="#contact" class="nav-link">Contact</a>
+        </div>
+        <div class="flex items-center space-x-4">
+          <button class="md:hidden focus:outline-none" id="menu-toggle">
+            <i class="fas fa-bars text-2xl"></i>
+          </button>
+        </div>
+      </nav>
+      <!-- Mobile menu -->
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden bg-white py-4 px-6 shadow-lg"
+      >
+        <div class="flex flex-col space-y-4">
+          <a href="#about" class="nav-link">À propos</a>
+          <a href="#skills" class="nav-link">Compétences</a>
+          <a href="#projects" class="nav-link">Projets</a>
+          <a href="#experience" class="nav-link">Expérience</a>
+          <a href="#education" class="nav-link">Formation</a>
+          <a href="#contact" class="nav-link">Contact</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center pt-20 pb-20 px-6 relative">
+      <div class="floating-icons-container">
+        <!-- Floating tech icons -->
+        <div class="floating-icon absolute top-10 left-1/4 text-blue-500 text-5xl" style="animation-delay: 0s;">
+          <i class="fab fa-python"></i>
+        </div>
+        <div class="floating-icon absolute top-10 right-40 text-red-500 text-5xl" style="animation-delay: 1s;">
+          <i class="fab fa-java"></i>
+        </div>
+        <div class="floating-icon absolute bottom-1/3 left-20 text-yellow-500 text-5xl" style="animation-delay: 2s;">
+          <i class="fab fa-js"></i>
+        </div>
+        <div class="floating-icon absolute top-1/3 right-10 text-green-500 text-5xl" style="animation-delay: 3s;">
+          <i class="fas fa-database"></i>
+        </div>
+        <div class="floating-icon absolute bottom-20 right-1/4 text-purple-500 text-5xl" style="animation-delay: 4s;">
+          <i class="fab fa-react"></i>
+        </div>
+        <div class="floating-icon absolute bottom-10 left-1/4 text-gray-700 text-5xl" style="animation-delay: 5s;">
+          <i class="fab fa-git-alt"></i>
+        </div>
+      </div>
+      
+      <div class="container mx-auto">
+        <div class="hero-content">
+          <div class="mb-2">
+            <span class="bg-blue-100 text-blue-800 px-4 py-1 rounded-full text-sm font-medium">
+              Élève-Ingénieure en Génie Logiciel
+            </span>
+          </div>
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+            <span class="gradient-text">Rais Rim</span>
+          </h1>
+          <p class="text-xl text-gray-600 mb-8 max-w-lg mx-auto">
+            Passionnée par le développement logiciel, l'intelligence artificielle et la création de solutions innovantes qui transforment les idées en réalité.
+          </p>
+          
+          <div class="flex flex-wrap gap-4 justify-center mb-12">
+            <a
+              href="#projects"
+              class="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-3 rounded-full font-medium hover:opacity-90 transition flex items-center"
+            >
+              <i class="fas fa-eye mr-2"></i> Voir mes projets
+            </a>
+            <a
+              href="#contact"
+              class="border-2 border-blue-500 text-blue-500 px-6 py-3 rounded-full font-medium hover:bg-blue-50 transition flex items-center"
+            >
+              <i class="fas fa-paper-plane mr-2"></i> Me contacter
+            </a>
+          </div>
+
+          <div class="flex items-center space-x-6 justify-center">
+            <div class="flex space-x-4">
+              <a href="#" class="tech-icon text-gray-700 hover:text-blue-500 text-xl">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a href="#" class="tech-icon text-gray-700 hover:text-gray-900 text-xl">
+                <i class="fab fa-github"></i>
+              </a>
+            </div>
+            <div class="h-px bg-gray-300 flex-1"></div>
+            <div class="flex items-center">
+              <div class="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center mr-2">
+                <i class="fas fa-envelope text-white text-sm"></i>
+              </div>
+              <span class="text-sm">raisrim00@gmail.com</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+<!-- About Section -->
+<section id="about" class="py-20 px-6 bg-white">
+    <div class="container mx-auto">
+      <h2 class="text-3xl font-bold mb-12 section-title">À propos de moi</h2>
+      <div class="flex flex-col md:flex-row items-center">
+        <div class="md:w-1/2 mb-10 md:mb-0">
+          <p class="text-lg mb-6">
+            Je suis une élève-ingénieure en Génie Logiciel à l'ENSIAS, passionnée par la création de solutions innovantes. Animée par un sens de l'innovation et un esprit critique affirmé, je m'efforce d'aborder chaque projet avec rigueur et créativité.
+
+          <p class="text-lg mb-8">
+            Grâce à mon esprit d'équipe et à mon adaptabilité, je m'engage pleinement dans des environnements dynamiques et collaboratifs. Mon objectif est de concevoir des applications performantes, esthétiques et intuitives qui améliorent concrètement la vie des utilisateurs.          </p>
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full">Sens de l'innovation </span>
+            <span class="bg-purple-100 text-purple-800 px-4 py-2 rounded-full">Esprit critique</span>
+            <span class="bg-green-100 text-green-800 px-4 py-2 rounded-full">Esprit d'équipe</span>
+            <span class="bg-pink-100 text-pink-800 px-4 py-2 rounded-full">Adaptabilité</span>
+          </div>
+          <!-- Bouton Télécharger CV -->
+          <div class="fixed bottom-6 right-6 z-50">
+            <a href="https://files.edgestore.dev/c1c64iuuehiujmz7/publicFiles/_public/002c03f6-762a-4249-9d3c-238d3121194e.pdf" download="CV_RAIS_RIM.pdf"
+               class="flex items-center bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+              </svg>
+              <span class="font-medium">Télécharger mon CV</span>
+            </a>
+          </div>
+        </div>
+        <div class="md:w-1/2 md:pl-12">
+          <div class="bg-gray-50 p-8 rounded-xl shadow-sm">
+            <h3 class="text-xl font-semibold mb-4">Mes compétences principales</h3>
+            <div class="grid grid-cols-2 gap-4">
+              <div class="flex items-center">
+                <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mr-3">
+                  <i class="fas fa-code text-blue-600"></i>
+                </div>
+                <span>Développement Web</span>
+              </div>
+              <div class="flex items-center">
+                <div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center mr-3">
+                  <i class="fas fa-paint-brush text-purple-600"></i>
+                </div>
+                <span>Design UX/UI</span>
+              </div>
+              <div class="flex items-center">
+                <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                  <i class="fas fa-database text-green-600"></i>
+                </div>
+                <span>Gestion de bases de données</span>
+              </div>
+              <div class="flex items-center">
+                <div class="w-10 h-10 bg-pink-100 rounded-full flex items-center justify-center mr-3">
+                  <i class="fas fa-robot text-pink-600"></i>
+                </div>
+                <span>Intelligence Artificielle</span>
+              </div>
+              <div class="flex items-center">
+                <div class="w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center mr-3">
+                  <i class="fas fa-project-diagram text-yellow-600"></i>
+                </div>
+                <span>Gestion de projet agile</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 px-6 bg-gray-50">
+        <div class="container mx-auto">
+          <h2 class="text-3xl font-bold mb-12 section-title">
+            Expérience professionnelle
+          </h2>
+  
+          <div class="max-w-3xl mx-auto">
+            <div class="relative pl-8 pb-8 border-l-2 border-blue-200">
+              <div
+                class="absolute w-4 h-4 bg-blue-500 rounded-full -left-2 top-1"
+              ></div>
+              <div class="mb-2">
+                <h3 class="text-xl font-semibold">
+                  Stage à l'ONEE-BE Casablanca
+                </h3>
+                <p class="text-gray-600">Juillet - Août 2024</p>
+              </div>
+              <p class="text-gray-700 mb-4">
+                Développement d'une application mobile de relevés d'index pour les
+                techniciens sur le terrain.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">Flutter</span>
+                <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded">SQL Server</span>
+                <span class="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded">UML</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+  
+      <!-- Education Section -->
+      <section id="education" class="py-20 px-6 bg-white">
+        <div class="container mx-auto">
+          <h2 class="text-3xl font-bold mb-12 section-title">Formation Académique</h2>
+  
+          <div class="max-w-3xl mx-auto">
+            <div class="space-y-8">
+              <!-- Education 1 -->
+              <div class="flex">
+                <div class="flex-shrink-0 mr-6">
+                  <div
+                    class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center"
+                  >
+                    <i class="fas fa-graduation-cap text-blue-600"></i>
+                  </div>
+                </div>
+                <div>
+                  <h3 class="text-xl font-semibold">
+                    ENSIAS – Cycle ingénieur Génie Logiciel
+                  </h3>
+                  <p class="text-gray-600 mb-2">2023–Présent</p>
+                  <p class="text-gray-700">
+                    Formation d'ingénieur en génie logiciel avec spécialisation en
+                    systèmes d'information et intelligence artificielle.
+                  </p>
+                </div>
+              </div>
+  
+              <!-- Education 2 -->
+              <div class="flex">
+                <div class="flex-shrink-0 mr-6">
+                  <div
+                    class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center"
+                  >
+                    <i class="fas fa-university text-purple-600"></i>
+                  </div>
+                </div>
+                <div>
+                  <h3 class="text-xl font-semibold">
+                    CPGE MP – Lycée Mohammed V
+                  </h3>
+                  <p class="text-gray-600 mb-2">2021–2023</p>
+                  <p class="text-gray-700">
+                    Classes préparatoires aux grandes écoles, filière
+                    Mathématiques-Physique.
+                  </p>
+                </div>
+              </div>
+  
+              <!-- Education 3 -->
+              <div class="flex">
+                <div class="flex-shrink-0 mr-6">
+                  <div
+                    class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center"
+                  >
+                    <i class="fas fa-school text-green-600"></i>
+                  </div>
+                </div>
+                <div>
+                  <h3 class="text-xl font-semibold">
+                    CPGE MPSI – Lycée Al Khansaa
+                  </h3>
+                  <p class="text-gray-600 mb-2">2020–2021</p>
+                  <p class="text-gray-700">
+                    Première année de classes préparatoires, filière
+                    Mathématiques-Physique-Sciences de l'Ingénieur.
+                  </p>
+                </div>
+              </div>
+  
+              <!-- Education 4 -->
+              <div class="flex">
+                <div class="flex-shrink-0 mr-6">
+                  <div
+                    class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center"
+                  >
+                    <i class="fas fa-award text-yellow-600"></i>
+                  </div>
+                </div>
+                <div>
+                  <h3 class="text-xl font-semibold">
+                    Bac Sciences Mathématiques B (mention Très Bien)
+                  </h3>
+                  <p class="text-gray-600 mb-2">2019–2020</p>
+                  <p class="text-gray-700">Lycée ELBILIA International</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+  
+    
+    
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 px-6 bg-white">
+        <div class="container mx-auto">
+          <h2 class="text-3xl font-bold mb-12 section-title">Mes projets</h2>
+  
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Project 1 -->
+            <div class="project-card bg-white rounded-xl overflow-hidden border border-gray-100 hover:shadow-lg transition-shadow">
+              <div class="h-48 overflow-hidden">
+                <img 
+                  src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
+                  alt="Moteur de recommandation métadonnées"
+                  class="w-full h-full object-cover"
+                >
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-semibold mb-2">Moteur de recommandation pour la gouvernance des métadonnées</h3>
+                <p class="text-gray-600 mb-4">
+                  Système de recommandation pour améliorer la gestion des métadonnées dans les environnements Big Data.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">Apache Atlas</span>
+                  <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">Ranger</span>
+                  <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">Hive</span>
+                  <span class="text-xs bg-purple-100 text-purple-800 px-2 py-1 rounded">REST API</span>
+                  <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded">Python</span>
+                </div>
+              </div>
+            </div>
+  
+            <!-- Project 2 -->
+            <div class="project-card bg-white rounded-xl overflow-hidden border border-gray-100 hover:shadow-lg transition-shadow">
+              <div class="h-48 overflow-hidden">
+                <img 
+                  src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80" 
+                  alt="Suivi agricole intelligent"
+                  class="w-full h-full object-cover"
+                >
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-semibold mb-2">Suivi agricole intelligent via données satellites et IA</h3>
+                <p class="text-gray-600 mb-4">
+                  Solution de suivi des cultures utilisant l'imagerie satellite et l'IA pour optimiser les rendements agricoles.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">Spring Boot</span>
+                  <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">Next.js</span>
+                  <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded">PostgreSQL</span>
+                  <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded">Python</span>
+                </div>
+              </div>
+            </div>
+  
+            <!-- Project 3 -->
+            <div class="project-card bg-white rounded-xl overflow-hidden border border-gray-100 hover:shadow-lg transition-shadow">
+              <div class="h-48 overflow-hidden">
+                <img 
+                  src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80" 
+                  alt="Application gestion financière"
+                  class="w-full h-full object-cover"
+                >
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-semibold mb-2">Application mobile de gestion financière</h3>
+                <p class="text-gray-600 mb-4">
+                  Application mobile complète pour le suivi des dépenses et l'analyse des habitudes financières.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">Java</span>
+                  <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">XML</span>
+                  <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded">Firebase</span>
+                </div>
+              </div>
+            </div>
+  
+            <!-- Project 4 -->
+            <div class="project-card bg-white rounded-xl overflow-hidden border border-gray-100 hover:shadow-lg transition-shadow">
+              <div class="h-48 overflow-hidden">
+                <img 
+                  src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
+                  alt="Détection d'objets"
+                  class="w-full h-full object-cover"
+                >
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-semibold mb-2">Application de détection et suivi d'objets</h3>
+                <p class="text-gray-600 mb-4">
+                  Système de vision par ordinateur pour la détection et le suivi d'objets en temps réel.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">YOLOv8</span>
+                  <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">Transfer Learning</span>
+                  <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded">Django</span>
+                </div>
+              </div>
+            </div>
+  
+            <!-- Project 5 -->
+            <div class="project-card bg-white rounded-xl overflow-hidden border border-gray-100 hover:shadow-lg transition-shadow">
+              <div class="h-48 overflow-hidden">
+                <img 
+                  src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80" 
+                  alt="Gestion de stages"
+                  class="w-full h-full object-cover"
+                >
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-semibold mb-2">Application de gestion de stages</h3>
+                <p class="text-gray-600 mb-4">
+                  Plateforme complète pour la gestion des stages étudiants dans un établissement d'enseignement.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">Oracle APEX</span>
+                  <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded">Oracle DB</span>
+                  <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">Spring Boot</span>
+                </div>
+              </div>
+            </div>
+  
+            <!-- Project 6 -->
+            <div class="project-card bg-white rounded-xl overflow-hidden border border-gray-100 hover:shadow-lg transition-shadow">
+              <div class="h-48 overflow-hidden">
+                <img 
+                  src="https://images.unsplash.com/photo-1617791160536-598cf32026fb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1364&q=80" 
+                  alt="Compilateur Pascal"
+                  class="w-full h-full object-cover"
+                >
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-semibold mb-2">Compilateur Pascal en C</h3>
+                <p class="text-gray-600 mb-4">
+                  Compilateur qui traduit un sous-ensemble du langage Pascal vers le langage C.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">C</span>
+                  <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">Lex/Yacc</span>
+                  <span class="text-xs bg-purple-100 text-purple-800 px-2 py-1 rounded">Compilation</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    
+    
+    
+    
+      <!-- Skills Section -->
+    <section id="skills" class="py-20 px-6 bg-gray-50">
+      <div class="container mx-auto">
+        <h2 class="text-3xl font-bold mb-12 section-title">Mes compétences</h2>
+
+        <div class="grid md:grid-cols-2 gap-12">
+          <!-- Programming Skills -->
+          <div>
+            <h3 class="text-xl font-semibold mb-6 flex items-center">
+              <div
+                class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-3"
+              >
+                <i class="fas fa-code text-blue-600"></i>
+              </div>
+              Programmation
+            </h3>
+            <div class="flex flex-wrap gap-3">
+              <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full">C</span>
+              <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full">Java</span>
+              <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full">Python</span>
+              <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full">C++</span>
+            </div>
+          </div>
+
+          <!-- Development Skills -->
+          <div>
+            <h3 class="text-xl font-semibold mb-6 flex items-center">
+              <div
+                class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center mr-3"
+              >
+                <i class="fas fa-laptop-code text-purple-600"></i>
+              </div>
+              Développement
+            </h3>
+            <div class="flex flex-wrap gap-3">
+              <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full">HTML</span>
+              <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full">CSS</span>
+              <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full">JavaScript</span>
+              <span class="bg-purple-100 text-purple-800 px-4 py-2 rounded-full">Django</span>
+              <span class="bg-purple-100 text-purple-800 px-4 py-2 rounded-full">Flutter</span>
+              <span class="bg-purple-100 text-purple-800 px-4 py-2 rounded-full">Oracle APEX</span>
+              <span class="bg-green-100 text-green-800 px-4 py-2 rounded-full">Next.js</span>
+            </div>
+          </div>
+
+          <!-- Design Skills -->
+          <div>
+            <h3 class="text-xl font-semibold mb-6 flex items-center">
+              <div
+                class="w-8 h-8 bg-yellow-100 rounded-full flex items-center justify-center mr-3"
+              >
+                <i class="fas fa-project-diagram text-yellow-600"></i>
+              </div>
+              Conception
+            </h3>
+            <div class="flex flex-wrap gap-3">
+              <span class="bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full">UML</span>
+              <span class="bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full">Merise</span>
+            </div>
+          </div>
+
+          <!-- Database Skills -->
+          <div>
+            <h3 class="text-xl font-semibold mb-6 flex items-center">
+              <div
+                class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-3"
+              >
+                <i class="fas fa-database text-green-600"></i>
+              </div>
+              Bases de données
+            </h3>
+            <div class="flex flex-wrap gap-3">
+              <span class="bg-green-100 text-green-800 px-4 py-2 rounded-full">SQL</span>
+              <span class="bg-green-100 text-green-800 px-4 py-2 rounded-full">PL/SQL</span>
+              <span class="bg-green-100 text-green-800 px-4 py-2 rounded-full">MySQL</span>
+              <span class="bg-green-100 text-green-800 px-4 py-2 rounded-full">Oracle</span>
+              <span class="bg-green-100 text-green-800 px-4 py-2 rounded-full">SQL Server</span>
+              <span class="bg-green-100 text-green-800 px-4 py-2 rounded-full">PostgreSQL</span>
+            </div>
+          </div>
+
+          <!-- Languages -->
+          <div>
+            <h3 class="text-xl font-semibold mb-6 flex items-center">
+              <div
+                class="w-8 h-8 bg-pink-100 rounded-full flex items-center justify-center mr-3"
+              >
+                <i class="fas fa-language text-pink-600"></i>
+              </div>
+              Langues
+            </h3>
+            <div class="flex flex-wrap gap-3">
+              <span class="bg-pink-100 text-pink-800 px-4 py-2 rounded-full">Arabe (langue maternelle)</span>
+              <span class="bg-pink-100 text-pink-800 px-4 py-2 rounded-full">Français (courant)</span>
+              <span class="bg-pink-100 text-pink-800 px-4 py-2 rounded-full">Anglais (courant)</span>
+              <span class="bg-pink-100 text-pink-800 px-4 py-2 rounded-full">Espagnol (débutant)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+
+    
+    
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="py-20 px-6 bg-white">
+      <div class="container mx-auto">
+        <h2 class="text-3xl font-bold mb-12 section-title">Certifications</h2>
+        
+        <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <!-- Certification 1 -->
+          <div class="bg-gray-50 p-6 rounded-xl border border-gray-200 hover:shadow-md transition">
+            <div class="flex items-start mb-4">
+              <div class="flex-shrink-0 mr-4">
+                <img src="https://missiongraduatenm.org/wp-content/uploads/2022/08/DataCamp-Square-300x300-1.png" 
+                     alt="DataCamp" 
+                     style="width: 80px; height: auto;"
+                     class="h-12 object-contain">
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold">Deep Reinforcement Learning in Python</h3>
+                <p class="text-gray-600">DataCamp | 2023</p>
+              </div>
+            </div>
+            <p class="text-gray-700">
+              Maîtrise des concepts fondamentaux du reinforcement learning et implémentation d'algorithmes en Python.
+            </p>
+          </div>
+
+          <!-- Certification 2 -->
+          <div class="bg-gray-50 p-6 rounded-xl border border-gray-200 hover:shadow-md transition">
+            <div class="flex items-start mb-4">
+              <div class="flex-shrink-0 mr-4">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/IBM_logo.svg/2560px-IBM_logo.svg.png" 
+                     alt="IBM" 
+                     class="h-12 object-contain">
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold">Artificial Intelligence Analyst Certificate</h3>
+                <p class="text-gray-600">IBM | 2023</p>
+              </div>
+            </div>
+            <p class="text-gray-700">
+              Certification couvrant les concepts d'IA, le machine learning et l'analyse des données.
+            </p>
+          </div>
+
+          <!-- Certification 3 -->
+          <div class="bg-gray-50 p-6 rounded-xl border border-gray-200 hover:shadow-md transition">
+            <div class="flex items-start mb-4">
+              <div class="flex-shrink-0 mr-4">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/IBM_logo.svg/2560px-IBM_logo.svg.png" 
+                     alt="IBM" 
+                     class="h-12 object-contain">
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold">Introduction to DevOps</h3>
+                <p class="text-gray-600">IBM | 2023</p>
+              </div>
+            </div>
+            <p class="text-gray-700">
+              Fondamentaux des pratiques DevOps, intégration continue et déploiement continu (CI/CD).
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+
+    <!-- Parascolaire Section -->
+    <section id="extracurricular" class="py-20 px-6 bg-gray-50">
+        <div class="container mx-auto">
+          <h2 class="text-3xl font-bold mb-12 section-title">Activités Parascolaires</h2>
+          
+          <div class="max-w-3xl mx-auto">
+          <div class="space-y-8">
+            <!-- Activité 1 -->
+            <div class="flex">
+              <div class="flex-shrink-0 mr-6">
+                <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                  <i class="fas fa-users text-blue-600"></i>
+                </div>
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold">Membre de la Cellule Relations Externes</h3>
+                <p class="text-gray-600 mb-2">Club Fintech ENSIAS | 2023-Présent</p>
+                <p class="text-gray-700">
+                  Participation active à l'organisation d'événements et à l'établissement de partenariats avec des professionnels du secteur Fintech.
+                </p>
+              </div>
+            </div>
+  
+            <!-- Activité 2 -->
+            <div class="flex">
+              <div class="flex-shrink-0 mr-6">
+                <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
+                  <i class="fas fa-paint-brush text-purple-600"></i>
+                </div>
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold">Membre de la Cellule Design</h3>
+                <p class="text-gray-600 mb-2">Club IEEE ENSIAS | 2023-Présent</p>
+                <p class="text-gray-700">
+                  Conception d'affiches et de supports visuels pour les événements du club, amélioration de l'identité visuelle.
+                </p>
+              </div>
+            </div>
+  
+            <!-- Activité 3 -->
+            <div class="flex">
+              <div class="flex-shrink-0 mr-6">
+                <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                  <i class="fas fa-calendar-alt text-green-600"></i>
+                </div>
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold">Organisation d'événements</h3>
+                <p class="text-gray-600 mb-2">ENSIAS | 2023-Présent</p>
+                <p class="text-gray-700">
+                  Contribution active à l'organisation et au bon déroulement des événements des clubs de l'ENSIAS.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+
+    <!-- Contact Section -->
+    <section
+      id="contact"
+      class="py-20 px-6 bg-gradient-to-r from-blue-50 to-purple-50"
+    >
+      <div class="container mx-auto">
+        <h2 class="text-3xl font-bold mb-12 section-title">Contactez-moi</h2>
+
+        <div class="flex flex-col md:flex-row">
+          <div class="md:w-1/2 mb-10 md:mb-0">
+            <h3 class="text-xl font-semibold mb-6">
+              Disponible pour de nouvelles opportunités
+            </h3>
+            <p class="text-gray-700 mb-8">
+              Si vous avez une question ou souhaitez discuter d'un projet
+              potentiel, n'hésitez pas à me contacter.
+            </p>
+
+            <div class="space-y-4">
+              <div class="flex items-center">
+                <div
+                  class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mr-4"
+                >
+                  <i class="fas fa-map-marker-alt text-blue-600"></i>
+                </div>
+                <span>Casablanca, Maroc</span>
+              </div>
+              <div class="flex items-center">
+                <div
+                  class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center mr-4"
+                >
+                  <i class="fas fa-envelope text-purple-600"></i>
+                </div>
+                <span>raisrim00@gmail.com</span>
+              </div>
+              <div class="flex items-center">
+                <div
+                  class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mr-4"
+                >
+                  <i class="fas fa-phone text-green-600"></i>
+                </div>
+                <span>+212 668504894</span>
+              </div>
+            </div>
+
+            <div class="mt-8 flex space-x-4">
+              <a
+                href="#"
+                class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center hover:bg-blue-200 transition"
+              >
+                <i class="fab fa-linkedin-in text-blue-600"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gray-700 transition"
+              >
+                <i class="fab fa-github text-white"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="md:w-1/2 md:pl-12">
+            <form class="bg-white p-8 rounded-xl shadow-sm">
+              <div class="mb-6">
+                <label for="name" class="block text-gray-700 mb-2">Nom complet</label>
+                <input
+                  type="text"
+                  id="name"
+                  class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+              <div class="mb-6">
+                <label for="email" class="block text-gray-700 mb-2">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+              <div class="mb-6">
+                <label for="message" class="block text-gray-700 mb-2">Message</label>
+                <textarea
+                  id="message"
+                  rows="4"
+                  class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                ></textarea>
+              </div>
+              <button
+                type="submit"
+                class="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-3 rounded-lg font-medium hover:opacity-90 transition w-full"
+              >
+                Envoyer le message
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8 px-6">
+      <div class="container mx-auto text-center">
+        <p>© 2024 Rais Rim. Tous droits réservés.</p>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile menu toggle
+      document
+        .getElementById("menu-toggle")
+        .addEventListener("click", function () {
+          const menu = document.getElementById("mobile-menu");
+          menu.classList.toggle("hidden");
+        });
+
+      // Smooth scrolling for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          const targetId = this.getAttribute("href");
+          const targetElement = document.querySelector(targetId);
+
+          if (targetElement) {
+            // Close mobile menu if open
+            const mobileMenu = document.getElementById("mobile-menu");
+            if (!mobileMenu.classList.contains("hidden")) {
+              mobileMenu.classList.add("hidden");
+            }
+
+            // Scroll to target
+            window.scrollTo({
+              top: targetElement.offsetTop - 80,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+
+      // Add shadow to header on scroll
+      window.addEventListener("scroll", function () {
+        const header = document.querySelector("header");
+        if (window.scrollY > 50) {
+          header.classList.add("shadow-md");
+        } else {
+          header.classList.remove("shadow-md");
+        }
+      });
+    </script>
+  </body>
+</html>
